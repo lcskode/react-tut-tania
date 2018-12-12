@@ -1,15 +1,25 @@
 import React, {Component} from 'react';
 
 class Table extends Component {
+
+  
+
   render () {
-    return (
-      <table>
+    // Simple Component TableHeader
+    const TableHeader = () => {
+      return (
         <thead>
           <tr>
             <th>Name</th>
             <th>Job</th>
           </tr>
         </thead>
+      );
+    }
+
+    // Simple Component TableBody
+    const TableBody = () => {
+      return (
         <tbody>
           <tr>
             <td>Charlie</td>
@@ -28,6 +38,13 @@ class Table extends Component {
             <td>Bartender</td>
           </tr>
         </tbody>
+      );
+    }
+
+    return (
+      <table>
+        <TableHeader /> {/* Call TableHeader Component */}
+        <TableBody /> {/* Call TableBody Component */}
       </table>
     )
   }
