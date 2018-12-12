@@ -1,11 +1,13 @@
+// Created Table.js Class Component
+
 import React, {Component} from 'react';
 
 class Table extends Component {
-
-  
-
   render () {
-    // Simple Component TableHeader
+    // Access character data from App.js since Table Component has the character data
+    const {characterData} = this.props;
+
+    // Simple Component TableHeader (Simple Component is usually a function)
     const TableHeader = () => {
       return (
         <thead>
@@ -19,32 +21,15 @@ class Table extends Component {
 
     // Simple Component TableBody
     const TableBody = () => {
-      return (
-        <tbody>
-          <tr>
-            <td>Charlie</td>
-            <td>Janitor</td>
-          </tr>
-          <tr>
-            <td>Mac</td>
-            <td>Bouncer</td>
-          </tr>
-          <tr>
-            <td>Dee</td>
-            <td>Aspiring Actress</td>
-          </tr>
-          <tr>
-            <td>Dennis</td>
-            <td>Bartender</td>
-          </tr>
-        </tbody>
-      );
+      return <tbody></tbody>;
     }
 
     return (
       <table>
-        <TableHeader /> {/* Call TableHeader Component */}
-        <TableBody /> {/* Call TableBody Component */}
+        {/* Call TableHeader Component */}
+        <TableHeader /> 
+        {/* Call TableBody Component with character data from App.js */}
+        <TableBody characterData={characterData}/> 
       </table>
     )
   }
