@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 
 class Table extends Component {
   render () {
-    // Access character array from App.js via props
+    // Access character array from App Component via props
     const {characterData, removeCharacter} = this.props;
 
     // Simple Component TableHeader (Simple Component is usually a function)
@@ -20,9 +20,9 @@ class Table extends Component {
     }
 
     // Simple Component TableBody
-    // Pass props through TableBody as a parameter and map through the array
+    // Pass props through TableBody Component as a parameter and map through the array
     const TableBody = (props) => {
-      // save characters array to rows object
+      // save characters array from App Component to rows object
       const rows = props.characterData.map((row, index) => {
         return (
           <tr key={index}>
@@ -47,7 +47,7 @@ class Table extends Component {
       <table>
         {/* Call TableHeader Component */}
         <TableHeader /> 
-        {/* Call TableBody Component with character data from App.js */}
+        {/* Call TableBody Component with character data from App Component */}
         <TableBody 
           characterData={characterData}
           removeCharacter={removeCharacter}
