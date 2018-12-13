@@ -3,9 +3,9 @@ import Table from './Table'; // Add Table.js Class Component
 
 // App Component
 class App extends Component {
-  render () {
-
-    const characters = [
+  
+  state = {
+    characters: [
       {
         'name': 'Charlie',
         'job': 'Janitor'
@@ -23,12 +23,28 @@ class App extends Component {
         'job': 'Bartender'
       }
     ]
+  }
+  
+  // 
+  removeCharacter = (index) => {
+    const {characters} = this.state;
 
+    this.setState({
+      characters: characters.filter((character, i) => {
+        return i !== index;
+      })
+    });
+  }
+
+  render () {
     return (
       <div className="container">
         <h1>Hello, React!</h1>
-        {/* Call Table Class Component and pass characters data */}
-        <Table characterData={characters}/> 
+        {/* Call Table Class Component and pass characters array through */}
+        <Table 
+          characterData={this.state.characters}
+          removeCharacter={this.removeCharacter}
+        /> 
       </div>
     )
   }

@@ -4,8 +4,8 @@ import React, {Component} from 'react';
 
 class Table extends Component {
   render () {
-    // Access character data from App.js since Table Component has the character data
-    const {characterData} = this.props;
+    // Access character array from App.js via props
+    const {characterData, removeCharacter} = this.props;
 
     // Simple Component TableHeader (Simple Component is usually a function)
     const TableHeader = () => {
@@ -20,8 +20,27 @@ class Table extends Component {
     }
 
     // Simple Component TableBody
-    const TableBody = () => {
-      return <tbody></tbody>;
+    // Pass props through TableBody as a parameter and map through the array
+    const TableBody = (props) => {
+      // save characters array to rows object
+      const rows = props.characterData.map((row, index) => {
+        return (
+          <tr key={index}>
+            <td>{row.name}</td>
+            <td>{row.job}</td>
+            <td>
+              <button 
+                onClick={() => props.removeCharacter(index)}
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        )
+      });
+
+      // display data from rows obj
+      return <tbody>{rows}</tbody>;
     }
 
     return (
@@ -29,7 +48,10 @@ class Table extends Component {
         {/* Call TableHeader Component */}
         <TableHeader /> 
         {/* Call TableBody Component with character data from App.js */}
-        <TableBody characterData={characterData}/> 
+        <TableBody 
+          characterData={characterData}
+          removeCharacter={removeCharacter}
+        /> 
       </table>
     )
   }
