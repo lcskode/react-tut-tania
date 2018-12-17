@@ -47,7 +47,7 @@ class Form extends Component {
           onChange={this.handleChange}
         />
         <input 
-          typ e="button"
+          type="button"
           value="Submit"
           onClick={this.submitForm}
         />
