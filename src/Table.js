@@ -14,6 +14,7 @@ class Table extends Component {
           <tr>
             <th>Name</th>
             <th>Job</th>
+            <th>Modify</th>
           </tr>
         </thead>
       );
