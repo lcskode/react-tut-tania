@@ -1,35 +1,18 @@
 import React, {Component} from 'react';
 import Table from './Table'; // Add Table.js Class Component
 
-// App Component
 class App extends Component {
-  
+  // set characters array
   state = {
-    characters: [
-      {
-        'name': 'Charlie',
-        'job': 'Janitor'
-      },
-      {
-        'name': 'Mac',
-        'job': 'Bouncer'
-      },
-      {
-        'name': 'Dee',
-        'job': 'Aspiring Actress'
-      },
-      {
-        'name': 'Dennis',
-        'job': 'Bartender'
-      }
-    ]
+    characters: []
   }
   
-  // 
+  // remove data from characters array with selected index
   removeCharacter = (index) => {
     const {characters} = this.state;
 
     this.setState({
+      // remove character with selected index and return all characters not equal to selected index to characters array
       characters: characters.filter((character, i) => {
         return i !== index;
       })
@@ -40,7 +23,7 @@ class App extends Component {
     return (
       <div className="container">
         <h1>Hello, React!</h1>
-        {/* Call Table Class Component and pass characters array through */}
+        {/* Call Table Component and pass characters array through */}
         <Table 
           characterData={this.state.characters}
           removeCharacter={this.removeCharacter}
